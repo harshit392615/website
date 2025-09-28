@@ -78,9 +78,16 @@
   <div class="screen active" id="screen1">
     <h1>Do you love me? ❤️</h1>
     <div>
-      <button onclick="nextScreen('screen2')">Yes</button>
+      <button onclick="showLoveScreen()">Yes</button>
       <button id="noBtn1">No</button>
     </div>
+  </div>
+
+  <!-- New Love Screen -->
+  <div class="screen" id="loveScreen">
+    <h1>I love you too ❤️</h1>
+    <p class="hearts">💖💞💓</p>
+    <p>Wait a moment, please...</p>
   </div>
 
   <!-- Screen 2 -->
@@ -95,11 +102,12 @@
   <!-- Screen 3 -->
   <div class="screen" id="screen3">
     <h2>Aww, I miss you too ❤️</h2>
+    <p>My life was as dark as a void until you came like the light of dawn. From the very first moment I wake up, I think about you, and until the very last moment before I sleep, I think about you. Every day I see you in my dreams. Now I finally know what a perfect dream means. I just want you to know that when I die, in the last seven minutes my brain plays, you will be there in those seven minutes. I love you.</p>
     <p class="hearts">💖💞💓</p>
     <p>Kindly send some mandatory 3–5 pics and some voice notes 😘</p>
     <div class="social-links">
-      <a href="https://www.snapchat.com/add/harshit_34315" target="_blank">Snapchat</a>
-      <a href="https://www.instagram.com/harshit_43_15" target="_blank">Instagram</a>
+      <a href="https://www.snapchat.com/add/YOUR_USERNAME" target="_blank">Snapchat</a>
+      <a href="https://www.instagram.com/YOUR_PROFILE" target="_blank">Instagram</a>
     </div>
   </div>
 
@@ -107,6 +115,14 @@
     function nextScreen(screenId) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       document.getElementById(screenId).classList.add('active');
+    }
+
+    function showLoveScreen() {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('loveScreen').classList.add('active');
+      setTimeout(() => {
+        nextScreen('screen2');
+      }, 3000); // show for 5 seconds then go to next screen
     }
 
     function makeButtonEscape(btn) {
